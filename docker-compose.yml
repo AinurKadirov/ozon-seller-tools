@@ -1,0 +1,35 @@
+name: ozon-card-profit
+
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27018:27017"
+    volumes:
+      - card-profit-mongo:/data/db
+
+  api:
+    build: ./card-profit
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env.development
+    environment:
+      MONGO_URL: mongodb://mongo:27017/card_profit
+      PORT: "3080"
+      TAX_RATE: "0.07"
+    ports:
+      - "3080:3080"
+    depends_on:
+      - mongo
+
+  web:
+    build: ./frontend
+    restart: unless-stopped
+    ports:
+      - "3081:80"
+    depends_on:
+      - api
+
+volumes:
+  card-profit-mongo:

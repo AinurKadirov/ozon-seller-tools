@@ -1,0 +1,35 @@
+{
+  "name": "@ozon/seller-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ozon seller CLI: unit economics, prices, promos, reports",
+  "scripts": {
+    "ozon:daily-report": "npx ts-node --transpile-only tools/sale/run-daily-report.ts",
+    "ozon:weekly-report": "npx ts-node --transpile-only tools/sale/weekly-report.ts",
+    "ozon:unit-economics": "npx ts-node --transpile-only tools/sale/unit-economics.ts",
+    "ozon:unit-economics-current": "npx ts-node --transpile-only tools/sale/unit-economics.ts --current-prices",
+    "ozon:set-min-prices": "npx ts-node --transpile-only tools/sale/set-min-prices.ts",
+    "ozon:monitor-promos": "npx ts-node --transpile-only tools/sale/monitor-promos.ts",
+    "ozon:ads-analysis": "npx ts-node --transpile-only tools/sale/ads-analysis.ts",
+    "ozon:supply-plan": "npx ts-node --transpile-only tools/sale/supply-plan.ts",
+    "ozon:track-seo": "npx ts-node --transpile-only tools/sale/track-seo-positions.ts",
+    "ozon:seo-trend": "npx ts-node --transpile-only tools/sale/show-seo-trend.ts",
+    "ozon:disable-auto-actions": "npx ts-node --transpile-only tools/sale/disable-auto-actions.ts",
+    "ozon:set-prices-150": "npx ts-node --transpile-only tools/sale/set-prices-150.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
+    "mongodb": "^6.19.0",
+    "node-fetch": "^2.7.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}
